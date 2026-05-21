@@ -1,0 +1,61 @@
+﻿# Visual Studio
+.vs/
+*.suo
+# *.user
+*.pdb
+*.obj
+*.o
+*.lo
+*.la
+*.dll
+*.exe
+*.ocx
+*.lib
+*.ncb
+*.sdf
+*.tlog
+ipch/
+*.aps
+*.bsc
+*.sbr
+*.res
+*.pch
+*.idb
+*.opt
+*.ilk
+*.exp
+*.map
+*.bak
+*.trg
+*.manifest
+_UpgradeReport_Files/
+App_Data/
+bin/
+obj/
+Generated_Code/
+_ReSharper.*/
+[Rr]elease/
+[Dd]ebug/
+build/
+*.VC.db
+*.VC.opendb
+*.log
+*.docstates
+*.vsp
+*.vspscc
+*.vssscc
+*.buildscc
+*.mdf
+*.ldf
+# NuGet
+*.nupkg
+packages/
+# Node.js
+node_modules/
+# Misc
+*.min.js
+*.min.css
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
