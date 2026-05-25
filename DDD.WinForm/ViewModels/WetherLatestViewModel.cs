@@ -1,27 +1,68 @@
 ﻿using DDD.Domain.Repositories;
 using DDD.Domain.ValueObjects;
-using DDD.WinForm.Common;
+using DDD.Infrastructure.SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DDD.WinForm.ViewModels
 {
-    public class WetherLatestViewModel
+    public class WetherLatestViewModel : ViewModelBase
     {
         private IWeatherRepository _weather;
+
+        public WetherLatestViewModel()
+            : this(new WetherSQLite())
+        {
+        }
 
         public WetherLatestViewModel(IWeatherRepository weather)
         {
             _weather = weather;
         }
 
-        public string AreaIdText { get; set; } = string.Empty;
-        public string DataDateText { get; set; } = string.Empty;
-        public string ConditionText { get; set; } = string.Empty;
-        public string TemperatureText { get; set; } = string.Empty;
+        private string _areaIdText = string.Empty;
+        public string AreaIdText
+        {
+            get => _areaIdText;
+            set
+            {
+                SetProperty(ref _areaIdText, value);
+            }
+        }
+        private string _dataDateText = string.Empty;
+        public string DataDateText
+        {
+            get => _dataDateText;
+            set
+            {
+                SetProperty(ref _dataDateText, value);
+            }
+        }
+        private string _conditionText = string.Empty;
+        public string ConditionText
+        {
+            get => _conditionText;
+            set
+            {
+                SetProperty(ref _conditionText, value);
+            }
+        }
+        private string _temperatureText = string.Empty;
+        public string TemperatureText
+        {
+            get => _temperatureText;
+            set
+            {
+                SetProperty(ref _temperatureText, value);
+            }
+        }
+
+        public BindingList<AreaEntity> Areas { get; set; }
 
         public void Search()
         {
@@ -30,11 +71,8 @@ namespace DDD.WinForm.ViewModels
             if (entity != null)
             {
                 DataDateText = entity.DataDate.ToString();
-                ConditionText = entity.Condition.ToString();
-                TemperatureText =
-                    CommonFunc.RoundString(entity.Temperature,
-                        Temperature.DecimalPoint) + " "
-                        + Temperature.UnitName;
+                ConditionText = entity.Condition.DisplayValue;
+                TemperatureText = entity.Temperature.DisplayValueWithUnitSpace;
             }
         }
     }

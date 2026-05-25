@@ -47,8 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Class1.cs" />
-    <Compile Include="Data\WetherSQLite.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WetherLatestViewModel.cs" />
     <Compile Include="Views\WetherLatestView.cs">
       <SubType>Form</SubType>
@@ -82,11 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Data.SQLite">
-      <Version>1.0.117</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DDD.Domain\DDD.Domain.csproj">

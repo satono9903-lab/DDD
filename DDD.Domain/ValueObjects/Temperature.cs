@@ -1,4 +1,4 @@
-﻿using DDD.WinForm.Common;
+﻿using DDD.Domain.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,23 @@ namespace DDD.Domain.ValueObjects
         { 
             get
             {
-                return CommonFunc.RoundString(Value, DecimalPoint) + UnitName;
+                return Value.RoundString(DecimalPoint);
+            }
+        }
+
+        public string DisplayValueWithUnit
+        {
+            get
+            {
+                return Value.RoundString(DecimalPoint) + UnitName;
+            }
+        }
+
+        public string DisplayValueWithUnitSpace
+        {
+            get
+            {
+                return Value.RoundString(DecimalPoint) + " " + UnitName;
             }
         }
 
