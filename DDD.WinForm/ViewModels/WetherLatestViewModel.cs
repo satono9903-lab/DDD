@@ -1,4 +1,5 @@
-﻿using DDD.Domain.Repositories;
+﻿using DDD.Domain.Entities;
+using DDD.Domain.Repositories;
 using DDD.Domain.ValueObjects;
 using DDD.Infrastructure.SQLite;
 using System;
@@ -62,7 +63,7 @@ namespace DDD.WinForm.ViewModels
             }
         }
 
-        public BindingList<AreaEntity> Areas { get; set; }
+        public BindingList<AreaEntity> Areas { get; set; } = new BindingList<AreaEntity>();
 
         public void Search()
         {
